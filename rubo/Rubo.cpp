@@ -28,6 +28,7 @@ void Rubo::all_lights_off() {
     chenge_lights(led_bits_all_off);
 }
 
+// TODO: make relay revere only once
 void Rubo::alarm_on() {
     left_turn_off();
     right_turn_off();
@@ -35,6 +36,7 @@ void Rubo::alarm_on() {
     timer.enable(right_timer_id);
 }
 
+// TODO: make relay revere only once
 void Rubo::alarm_off() {
     timer.disable(left_timer_id);
     timer.disable(right_timer_id);
@@ -78,35 +80,43 @@ void Rubo::right_turn_blink() {
 }
 
 void Rubo::stop_signal_on() {
-
+    set_bit(current_led_bits, BIT_STOP_SIGNAL_Q5, ON);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::stop_signal_off() {
-
+    set_bit(current_led_bits, BIT_STOP_SIGNAL_Q5, OFF);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::rear_light_on() {
-
+    set_bit(current_led_bits, BIT_REAR_LIGHT_Q4, ON);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::rear_light_off() {
-
+    set_bit(current_led_bits, BIT_REAR_LIGHT_Q4, OFF);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::head_light_on() {
-
+    set_bit(current_led_bits, BIT_HEAD_LIGHT_Q2, ON);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::head_light_off() {
-
+    set_bit(current_led_bits, BIT_HEAD_LIGHT_Q2, OFF);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::fog_light_on() {
-
+    set_bit(current_led_bits, BIT_FOG_LIGHT_Q3, ON);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::fog_light_off() {
-
+    set_bit(current_led_bits, BIT_FOG_LIGHT_Q3, OFF);
+    chenge_lights(current_led_bits);
 }
 
 void Rubo::set_bit(unsigned int &_byte, int _bit, int _value) {
