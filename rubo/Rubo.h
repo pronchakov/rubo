@@ -57,14 +57,14 @@ public:
 
     void timer_run();
 
-    SimpleTimer timer;
-
 private:
     void set_bit(unsigned int &_byte, int _bit, int _value);
 
     void inverse_bit(unsigned int &_byte, int _bit);
 
     void chenge_lights(unsigned int value);
+
+    SimpleTimer timer;
 
     int lights_clock_pin;
     int lights_latch_pin;
