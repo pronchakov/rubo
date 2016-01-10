@@ -8,13 +8,10 @@
 void setup() {
     Serial.begin(9600);
 
-    confugure(CLOCK_PIN, LATCH_PIN, DATA_PIN);
-//    alarm_on();
+    rubo::confugure(CLOCK_PIN, LATCH_PIN, DATA_PIN);
 }
 
 
 void loop() {
-
-    timer_run();
-
+    rubo::timer_run();
 }

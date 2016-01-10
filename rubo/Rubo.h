@@ -3,6 +3,8 @@
 
 #include "SimpleTimer.h"
 
+namespace rubo {
+
 #define BIT_reserved_Q6 0
 #define BIT_FOG_LIGHT_Q3 1
 #define BIT_RELAY_Q7 2
@@ -15,50 +17,53 @@
 #define ON 1
 #define OFF 0
 
-void alarm_on();
+#define TURN_PERIOD 500
 
-void alarm_off();
+    void alarm_on();
 
-void left_turn_on();
+    void alarm_off();
 
-void left_turn_off();
+    void left_turn_on();
 
-void left_turn_blink();
+    void left_turn_off();
 
-void right_turn_on();
+    void left_turn_blink();
 
-void right_turn_off();
+    void right_turn_on();
 
-void right_turn_blink();
+    void right_turn_off();
 
-void alarm_blink();
+    void right_turn_blink();
 
-void stop_signal_on();
+    void alarm_blink();
 
-void stop_signal_off();
+    void stop_signal_on();
 
-void rear_light_on();
+    void stop_signal_off();
 
-void rear_light_off();
+    void rear_light_on();
 
-void head_light_on();
+    void rear_light_off();
 
-void head_light_off();
+    void head_light_on();
 
-void fog_light_on();
+    void head_light_off();
 
-void fog_light_off();
+    void fog_light_on();
 
-void all_lights_off();
+    void fog_light_off();
 
-void confugure(int lights_clock_pin, int lights_latch_pin, int lights_data_pin);
+    void all_lights_off();
 
-void timer_run();
+    void confugure(int lights_clock_pin, int lights_latch_pin, int lights_data_pin);
 
-void set_bit(unsigned int &_byte, int _bit, int _value);
+    void timer_run();
 
-void inverse_bit(unsigned int &_byte, int _bit);
+    void set_bit(unsigned int &_byte, int _bit, int _value);
 
-void change_lights(unsigned int value);
+    void inverse_bit(unsigned int &_byte, int _bit);
 
+    void change_lights(unsigned int value);
+
+}
 #endif //RUBO_H
