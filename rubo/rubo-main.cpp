@@ -1,22 +1,20 @@
 #include "Arduino.h"
 #include "Rubo.h"
 
-#define DATA_PIN 13
-#define LATCH_PIN 12
-#define CLOCK_PIN 11
-
-#define LEFT_BUTTON 7
-#define RIGHT_BUTTON 2
-
-Rubo rubo(CLOCK_PIN, LATCH_PIN, DATA_PIN);
+#define LATCH_PIN 10
+#define DATA_PIN 11
+#define CLOCK_PIN 12
 
 void setup() {
-    pinMode(LEFT_BUTTON, INPUT);
-    pinMode(RIGHT_BUTTON, INPUT);
-
     Serial.begin(9600);
+
+    confugure(CLOCK_PIN, LATCH_PIN, DATA_PIN);
+//    alarm_on();
 }
 
+
 void loop() {
-    rubo.timer_run();
+
+    timer_run();
+
 }
