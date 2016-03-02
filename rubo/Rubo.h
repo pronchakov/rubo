@@ -23,11 +23,15 @@ namespace rubo {
 
     void alarm_off();
 
+    void alarm();
+
     void left_turn_on();
 
     void left_turn_off();
 
     void left_turn_blink();
+
+    void left_turn();
 
     void right_turn_on();
 
@@ -35,23 +39,33 @@ namespace rubo {
 
     void right_turn_blink();
 
+    void right_turn();
+
     void alarm_blink();
 
     void stop_signal_on();
 
     void stop_signal_off();
 
+    void stop_signal_blink();
+
     void rear_light_on();
 
     void rear_light_off();
+
+    void rear_light_blink();
 
     void head_light_on();
 
     void head_light_off();
 
+    void head_light_blink();
+
     void fog_light_on();
 
     void fog_light_off();
+
+    void fog_light_blink();
 
     void all_lights_off();
 

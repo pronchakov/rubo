@@ -54,6 +54,17 @@ namespace rubo {
         right_turn_off();
     }
 
+    void alarm() {
+        if (timer.isEnabled(alarm_timer_id)) {
+            timer.disable(alarm_timer_id);
+            alarm_off();
+        } else {
+            timer.disable(left_timer_id);
+            timer.disable(right_timer_id);
+            timer.enable(alarm_timer_id);
+        }
+    }
+
     void left_turn_on() {
         set_bit(current_led_bits, BIT_LEFT_TURN_Q0, ON);
         set_bit(current_led_bits, BIT_RELAY_Q7, ON);
@@ -70,6 +81,17 @@ namespace rubo {
         inverse_bit(current_led_bits, BIT_LEFT_TURN_Q0);
         inverse_bit(current_led_bits, BIT_RELAY_Q7);
         change_lights(current_led_bits);
+    }
+
+    void left_turn() {
+        if (timer.isEnabled(left_timer_id)) {
+            timer.disable(left_timer_id);
+            left_turn_off();
+        } else {
+            timer.disable(right_timer_id);
+            right_turn_off();
+            timer.enable(left_timer_id);
+        }
     }
 
     void right_turn_on() {
@@ -89,6 +111,17 @@ namespace rubo {
         change_lights(current_led_bits);
     }
 
+    void right_turn() {
+        if (timer.isEnabled(right_timer_id)) {
+            timer.disable(right_timer_id);
+            right_turn_off();
+        } else {
+            timer.disable(left_timer_id);
+            left_turn_off();
+            timer.enable(right_timer_id);
+        }
+    }
+
     void alarm_blink() {
         inverse_bit(current_led_bits, BIT_RIGHT_TURN_Q1);
         inverse_bit(current_led_bits, BIT_LEFT_TURN_Q0);
@@ -106,6 +139,11 @@ namespace rubo {
         change_lights(current_led_bits);
     }
 
+    void stop_signal_blink() {
+        inverse_bit(current_led_bits, BIT_STOP_SIGNAL_Q5);
+        change_lights(current_led_bits);
+    }
+
     void rear_light_on() {
         set_bit(current_led_bits, BIT_REAR_LIGHT_Q4, ON);
         change_lights(current_led_bits);
@@ -113,6 +151,11 @@ namespace rubo {
 
     void rear_light_off() {
         set_bit(current_led_bits, BIT_REAR_LIGHT_Q4, OFF);
+        change_lights(current_led_bits);
+    }
+
+    void rear_light_blink() {
+        inverse_bit(current_led_bits, BIT_REAR_LIGHT_Q4);
         change_lights(current_led_bits);
     }
 
@@ -126,6 +169,11 @@ namespace rubo {
         change_lights(current_led_bits);
     }
 
+    void head_light_blink() {
+        inverse_bit(current_led_bits, BIT_HEAD_LIGHT_Q2);
+        change_lights(current_led_bits);
+    }
+
     void fog_light_on() {
         set_bit(current_led_bits, BIT_FOG_LIGHT_Q3, ON);
         change_lights(current_led_bits);
@@ -133,6 +181,11 @@ namespace rubo {
 
     void fog_light_off() {
         set_bit(current_led_bits, BIT_FOG_LIGHT_Q3, OFF);
+        change_lights(current_led_bits);
+    }
+
+    void fog_light_blink() {
+        inverse_bit(current_led_bits, BIT_FOG_LIGHT_Q3);
         change_lights(current_led_bits);
     }
 
